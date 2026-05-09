@@ -1,9 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
-import { Clock } from "lucide-react";
+import { Clock, Check } from "lucide-react";
 import type { EnrichedUser } from "@/types";
 import type { CellContext } from "@tanstack/react-table";
+import ButtonApp from "./Button";
 
 export default function ColumnData() {
   return [
@@ -58,7 +60,7 @@ export default function ColumnData() {
       header: "Completed",
       cell: ({ getValue }: CellContext<EnrichedUser, number>) => (
         <Badge className="bg-emerald-100 text-emerald-700 border-0">
-          ✓ {getValue()}
+          <Check /> {getValue()}
         </Badge>
       ),
     },
@@ -86,6 +88,15 @@ export default function ColumnData() {
           </Badge>
         );
       },
+    },
+    {
+      id: "detail",
+      header: "Detail",
+      cell: ({ row }: CellContext<EnrichedUser, unknown>) => (
+        <ButtonApp className="bg-blue-700 py-4 text-sm font-semibold text-white shadow-md transition hover:bg-blue-500">
+          <Link href={`/users/${row.original.id}`}>View</Link>
+        </ButtonApp>
+      ),
     },
   ];
 }
