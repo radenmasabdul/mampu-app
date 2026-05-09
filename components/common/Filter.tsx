@@ -60,7 +60,9 @@ export default function Filter({
         <Input
           value={search}
           onChange={(e) => onSearchChange(e.target.value)}
-          placeholder="Search…"
+          placeholder="Search..."
+          id="search"
+          name="search"
           className="pl-9 h-9 bg-background w-full"
         />
       </div>
