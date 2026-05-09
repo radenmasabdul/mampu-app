@@ -5,9 +5,10 @@ export const revalidate = 60;
 
 export async function GET(
   _req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  const userId = Number(params.id);
+  const { id } = await params;
+  const userId = Number(id);
 
   if (isNaN(userId) || userId < 1 || userId > 10) {
     return NextResponse.json({ error: "User not found" }, { status: 404 });
