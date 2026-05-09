@@ -1,14 +1,11 @@
 import Link from "next/link";
+import ButtonApp from "@/components/common/Button";
 
 export default function Home() {
   return (
     <main className="flex flex-1 items-center justify-center px-6 py-16">
       <div className="max-w-xl text-center">
-        <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-red-100 px-4 py-2 text-sm font-medium text-red-500">
-          User Operations
-        </div>
-
-        <h1 className="mb-4 text-5xl font-bold tracking-tight text-zinc-900 md:text-6xl">
+        <h1 className="mb-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
           UserOps
         </h1>
 
@@ -17,12 +14,9 @@ export default function Home() {
           workspace.
         </p>
 
-        <Link
-          href="/users"
-          className="inline-flex items-center gap-2 rounded-xl bg-red-500 px-7 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-red-600"
-        >
-          View Users
-        </Link>
+        <ButtonApp className="bg-red-500 py-4 text-sm font-semibold text-white shadow-md transition hover:bg-red-600">
+          <Link href="/users">View Users</Link>
+        </ButtonApp>
       </div>
     </main>
   );
